@@ -13,4 +13,3 @@ By [Ihsaan Patel](https://github.com/pateli18)
 
 * **titanic_survival_exploration** is a project that predicts Titanic survivors through exploration and filtering.
 
-```
