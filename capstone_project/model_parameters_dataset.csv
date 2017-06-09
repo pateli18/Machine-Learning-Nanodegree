@@ -1,4 +1,4 @@
 Name,Best Parameters
 Logistic Regression,"{'penalty': 'l1', 'C': 10.0, 'random_state': 42, 'class_weight': 'balanced'}"
-Logistic Regression,"{'penalty': 'l1', 'C': 10.0, 'random_state': 42, 'class_weight': 'balanced'}"
 XGBoost,"{'colsample_bytree': 0.5, 'learning_rate': 0.01, 'min_child_weight': 1, 'n_estimators': 1000, 'subsample': 1, 'seed': 42, 'objective': 'binary:logistic', 'max_depth': 3, 'gamma': 0}"
+Random Forest,"{'min_samples_leaf': 1, 'n_estimators': 1000, 'random_state': 42, 'max_features': 'log2', 'max_depth': 100, 'class_weight': 'balanced'}"
