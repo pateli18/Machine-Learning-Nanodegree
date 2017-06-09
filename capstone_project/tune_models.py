@@ -38,8 +38,8 @@ MODEL_INFO = {
 	},
 	'svm':{
 		'name':'SVM',
-		'parameters_to_tune': {'C':[10.0**i for i in range(-5,6)],'kernel':['rbf'],
-		'gamma':[10.0**i for i in range(-5,6)], 'class_weight':['balanced'],
+		'parameters_to_tune': {'C':[10.0**-7, 10.0**-3, 1.0, 10.0**3, 10.0**7],'kernel':['rbf'],
+		'gamma':[10.0**-7, 10.0**-3, 1.0, 10.0**3, 10.0**7], 'class_weight':['balanced'],
 		'random_state':[RANDOM_STATE]}
 	},
 }
@@ -71,6 +71,10 @@ def run_model(model_name, model, X_train, X_test, y_train):
 def tune_models(train_dataset, test_dataset, parameters_dataset, 
 	feature_importance_dataset, train_predictions_dataset, test_predictions_dataset,
 	model_names):
+	available_models = [key for key in MODEL_INFO.keys()]
+	model_names = [model_name for model_name in model_names if model_name in available_models]
+	print('Running Models: {0}'.format(str(model_names)))
+
 	train_df = pd.read_csv(train_dataset)
 	test_df = pd.read_csv(test_dataset)
 
