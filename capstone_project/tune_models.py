@@ -33,7 +33,7 @@ MODEL_INFO = {
 	'xgb':{
 		'name':'XGBoost',
 		'parameters_to_tune': {'learning_rate':[.01, 0.1, 0.2], 'min_child_weight':[1, 5, 10],
-		'max_depth':[3, 5, 10], 'gamma':[0, .1], 'subsample':[0.5, 1], 'n_estimators':[1000]
+		'max_depth':[3, 5, 10], 'gamma':[0, .1], 'subsample':[0.5, 1], 'n_estimators':[1000],
 		'colsample_bytree':[0.5, 1], 'objective':['binary:logistic'], 'seed':[RANDOM_STATE]}
 	},
 	'svm':{
