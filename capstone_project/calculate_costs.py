@@ -6,11 +6,12 @@ def calculate_costs(predictions_dataset, costs_dataset, effectiveness_min, effec
 
 	try:
 		all_costs_df = pd.read_csv(costs_dataset)
-		models = [column for column in predictions_df.columns if column not in all_costs_df['Model'].tolist()]
+		models = [column for column in predictions_df.columns if column not in all_costs_df['Model'].tolist() and 'Probabilities' in column]
 	except IOError:
 		all_costs_df = pd.DataFrame()
-		models = predictions_df.columns
+		models = [column for column in predictions_df.columns if 'Probabilities' in column]
 
+	print(models)
 	print(all_costs_df.shape)
 
 	probability_thresholds = xrange(0, 100, 1)
@@ -41,7 +42,7 @@ def calculate_costs(predictions_dataset, costs_dataset, effectiveness_min, effec
 			costs_data.extend(costs)
 			all_costs_sub_df = pd.DataFrame([costs_data], columns = all_costs_columns)
 			all_costs_df = pd.concat([all_costs_df, all_costs_sub_df])
-		print('{0} out of {1} models cost data added'.format(model_num, len(models)))
+		print('{0} out of {1} models cost data added'.format(model_num + 1, len(models)))
 
 	print(all_costs_df.shape)
 	all_costs_df.to_csv(costs_dataset, index = False)
