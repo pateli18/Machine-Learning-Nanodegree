@@ -8,6 +8,7 @@ except:
 	pass
 from sklearn.svm import SVC
 from sklearn.grid_search import GridSearchCV
+from sklearn.preprocessing import StandardScaler
 import sys
 
 RANDOM_STATE = 42
@@ -32,9 +33,9 @@ MODEL_INFO = {
 	},
 	'xgb':{
 		'name':'XGBoost',
-		'parameters_to_tune': {'learning_rate':[.01], 'min_child_weight':[1],
-		'max_depth':[3], 'gamma':[0, .1, .2, .3], 'subsample':[1], 'n_estimators':[1000],
-		'colsample_bytree':[0.5], 'objective':['binary:logistic'], 'reg_lambda':[1, 10**1, 10**2],
+		'parameters_to_tune': {'learning_rate':[.001, .01, .02], 'min_child_weight':[1, 5, 10],
+		'max_depth':[3, 5, 10], 'gamma':[0, .1],'n_estimators':[1000],
+		'colsample_bytree':[0.5, 1], 'objective':['binary:logistic'], 'scale_pos_weight':[5.0, 4.0, 1.0],
 		'seed':[RANDOM_STATE]}
 	},
 	'svm':{
@@ -46,8 +47,13 @@ MODEL_INFO = {
 }
 
 def run_model(model_name, model, X_train, X_test, y_train):
+	if model_name == 'svm':
+		scaler = StandardScaler()
+		X_train = scaler.fit_transform(X_train)
+		X_test  = scaler.transform(X_test)
+
 	model_cv = GridSearchCV(model, MODEL_INFO[model_name]['parameters_to_tune'], 
-		scoring = "f1", cv = 5, verbose = 2, n_jobs = -1)
+		scoring = "f1", cv = 5, verbose = 5, n_jobs = -1)
 	model_cv.fit(X_train, y_train)
 	best_params = str(model_cv.best_params_)
 	model_best = model_cv.best_estimator_
