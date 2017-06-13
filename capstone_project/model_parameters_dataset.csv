@@ -12,3 +12,4 @@ Random Forest Top 80,"{'min_samples_leaf': 100, 'n_estimators': 1000, 'random_st
 Random Forest Top 90,"{'min_samples_leaf': 10, 'n_estimators': 1000, 'random_state': 42, 'max_features': 'log2', 'max_depth': 100, 'class_weight': 'balanced'}"
 Random Forest All,"{'min_samples_leaf': 10, 'n_estimators': 1000, 'random_state': 42, 'max_features': 'log2', 'max_depth': 100, 'class_weight': 'balanced'}"
 Random Forest Top 100,"{'min_samples_leaf': 10, 'n_estimators': 1000, 'random_state': 42, 'max_features': 'log2', 'max_depth': 100, 'class_weight': 'balanced'}"
+XGBoost Balanced,"{'colsample_bytree': 0.5, 'scale_pos_weight': 4.0, 'learning_rate': 0.02, 'min_child_weight': 5, 'n_estimators': 1000, 'seed': 42, 'objective': 'binary:logistic', 'max_depth': 5, 'gamma': 0}"
