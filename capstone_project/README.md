@@ -4,6 +4,7 @@ Project attempting to predict hospital readmission rates using anonymized patien
 
 ## Files
 * `proposal.md` is the initial proposal submitted to Udacity for feedback
+* `final_report.pdf` is the final project report, the main deliverable for the project
 
 ## Folders
 * `datasets` contains the various datasets used to train and test model performance (**note**: does not contain raw MIMIC-III data)
