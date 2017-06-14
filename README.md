@@ -13,3 +13,4 @@ By [Ihsaan Patel](https://github.com/pateli18)
 
 * **titanic_survival_exploration** is a project that predicts Titanic survivors through exploration and filtering.
 
+* **capstone_project** is a project that predicts hospital readmission rates using a number of models and feature engineering techniques
